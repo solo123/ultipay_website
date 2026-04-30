@@ -12,7 +12,7 @@ applications:
             # 仅构建前端应用
             - pnpm run build --filter=frontend
       artifacts:
-        baseDirectory: app/frontend/dist
+        baseDirectory: dist
         files:
           - '**/*'
       cache:
