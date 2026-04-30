@@ -3,7 +3,6 @@ import { ShieldCheck, Lock, Banknote } from "lucide-react";
 const PartnersSection = () => {
   const partners = [
     { name: "SUNRATE", zh: "寻汇", desc: "全球跨境金融与资金管理平台" },
-    { name: "Airwallex", zh: "空中云汇", desc: "全球数字金融基础设施" },
   ];
 
   const values = [
