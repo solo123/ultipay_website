@@ -5,8 +5,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint --quiet ./src",
-    "preview": "vite preview",
-    "postinstall": "echo 'Dependencies installed successfully'"
+    "preview": "pnpm run build && wrangler dev",
+    "postinstall": "echo 'Dependencies installed successfully'",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -66,6 +67,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.35.0",
     "@eslint/js": "^9.9.0",
     "@playwright/test": "^1.55.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
@@ -89,6 +91,7 @@
     "typescript-eslint": "^8.0.1",
     "vite": "^8.0.10",
     "vite-plugin-sitemap": "^0.8.2",
-    "vite-prerender-plugin": "^0.5.13"
+    "vite-prerender-plugin": "^0.5.13",
+    "wrangler": "^4.87.0"
   }
 }

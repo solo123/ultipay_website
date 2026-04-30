@@ -8,6 +8,8 @@ import Sitemap from 'vite-plugin-sitemap';
 import { getBlogRoutes } from './prerender/blog-routes.js';
 import { getSitemapLastmod } from './prerender/blog-sitemap.js';
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 function createManualChunks() {
   const chunkEntries: Array<[string, string[]]> = [
     // Vendor chunks
@@ -100,26 +102,20 @@ export default defineConfig(({ command }) => {
   const blogPrerenderRoutes = command === 'build' ? getBlogRoutes() : [];
 
   return {
-    plugins: [
-      viteSourceLocator({
-        prefix: 'mgx', // Prefix used to identify source locations; do not change.
-      }),
-      react(),
-      atoms(),
-      Sitemap({
-        hostname: 'https://atoms.template.com',
-        lastmod: getSitemapLastmod(),
-        readable: true,
-        generateRobotsTxt: true,
-      }),
-      ...(blogPrerenderRoutes.length > 0
-        ? vitePrerenderPlugin({
-            renderTarget: '#root',
-            prerenderScript: path.resolve(__dirname, 'prerender/blog.js'),
-            additionalPrerenderRoutes: blogPrerenderRoutes,
-          })
-        : []),
-    ],
+    plugins: [viteSourceLocator({
+      prefix: 'mgx', // Prefix used to identify source locations; do not change.
+    }), react(), atoms(), Sitemap({
+      hostname: 'https://atoms.template.com',
+      lastmod: getSitemapLastmod(),
+      readable: true,
+      generateRobotsTxt: true,
+    }), ...(blogPrerenderRoutes.length > 0
+      ? vitePrerenderPlugin({
+          renderTarget: '#root',
+          prerenderScript: path.resolve(__dirname, 'prerender/blog.js'),
+          additionalPrerenderRoutes: blogPrerenderRoutes,
+        })
+      : []), cloudflare()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
