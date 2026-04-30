@@ -1,0 +1,48 @@
+{
+  "status": "success",
+  "results": [
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35qeyaafna/hero-global-network.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35qeyaafna/hero-global-network.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35qeyaafna/hero-global-network.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Futuristic fintech hero banner, deep navy blue gradient background, glowing global longitude and latitude network connecting continents, luminous data flow particles and light streaks, abstract geometric lines, subtle mint green accent dots representing growth nodes, cinematic composition, high-tech financial aesthetic, no text",
+      "style": "photorealistic",
+      "filename": "hero-global-network.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35ooaaafla/service-fintech-payment.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35ooaaafla/service-fintech-payment.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35ooaaafla/service-fintech-payment.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Abstract fintech payment visualization, deep blue background, glowing currency symbols and transaction flow lines connecting across a stylized world map, clean geometric shapes, professional banking aesthetic, soft mint green highlights, no text",
+      "style": "photorealistic",
+      "filename": "service-fintech-payment.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35lnaaafma/service-ai-growth.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35lnaaafma/service-ai-growth.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35lnaaafma/service-ai-growth.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "AI-driven data growth visualization, neural network nodes glowing in blue and mint green, algorithmic data flow patterns, abstract digital brain circuitry, deep navy background, futuristic and technological, no text",
+      "style": "photorealistic",
+      "filename": "service-ai-growth.jpg"
+    },
+    {
+      "status": "success",
+      "path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35mlyaaflq/partnership-trust.png",
+      "absolute_path": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35mlyaaflq/partnership-trust.png",
+      "url": "https://mgx-backend-cdn.metadl.com/generate/images/851702/2026-04-28/nq35mlyaaflq/partnership-trust.png",
+      "message": "Image generated successfully.\n\nNote: The image is on CDN and will be displayed automatically. Just describe what you created briefly, no need to mention filenames or URLs.",
+      "description": "Nanjing city skyline silhouette at blue hour blending with digital tech light trails and subtle grid overlays, professional corporate trust aesthetic, deep blue and pearl white tones, soft mint accents, clean and premium feel, no text",
+      "style": "photorealistic",
+      "filename": "partnership-trust.jpg"
+    }
+  ],
+  "success_count": 4,
+  "failed_count": 0,
+  "message": "Generated 4/4 images"
+}
