@@ -8,6 +8,78 @@ import Sitemap from 'vite-plugin-sitemap';
 import { getBlogRoutes } from './prerender/blog-routes.js';
 import { getSitemapLastmod } from './prerender/blog-sitemap.js';
 
+function createManualChunks() {
+  const chunkEntries: Array<[string, string[]]> = [
+    // Vendor chunks
+    ['react-vendor', ['react', 'react-dom']],
+    ['router-vendor', ['react-router-dom']],
+    [
+      'ui-vendor',
+      [
+        '@radix-ui/react-accordion',
+        '@radix-ui/react-alert-dialog',
+        '@radix-ui/react-aspect-ratio',
+        '@radix-ui/react-avatar',
+        '@radix-ui/react-checkbox',
+        '@radix-ui/react-collapsible',
+        '@radix-ui/react-context-menu',
+        '@radix-ui/react-dialog',
+        '@radix-ui/react-dropdown-menu',
+        '@radix-ui/react-hover-card',
+        '@radix-ui/react-label',
+        '@radix-ui/react-menubar',
+        '@radix-ui/react-navigation-menu',
+        '@radix-ui/react-popover',
+        '@radix-ui/react-progress',
+        '@radix-ui/react-radio-group',
+        '@radix-ui/react-scroll-area',
+        '@radix-ui/react-select',
+        '@radix-ui/react-separator',
+        '@radix-ui/react-slider',
+        '@radix-ui/react-slot',
+        '@radix-ui/react-switch',
+        '@radix-ui/react-tabs',
+        '@radix-ui/react-toast',
+        '@radix-ui/react-toggle',
+        '@radix-ui/react-toggle-group',
+        '@radix-ui/react-tooltip',
+      ],
+    ],
+    ['form-vendor', ['react-hook-form', '@hookform/resolvers', 'zod']],
+    [
+      'utils-vendor',
+      [
+        'axios',
+        'clsx',
+        'tailwind-merge',
+        'class-variance-authority',
+        'date-fns',
+        'lucide-react',
+      ],
+    ],
+    ['query-vendor', ['@tanstack/react-query']],
+  ];
+
+  const pkgToChunk = new Map<string, string>();
+  for (const [chunkName, pkgs] of chunkEntries) {
+    for (const pkg of pkgs) pkgToChunk.set(pkg, chunkName);
+  }
+
+  const NODE_MODULES = `${path.sep}node_modules${path.sep}`;
+  return (id: string) => {
+    const nmIdx = id.lastIndexOf(NODE_MODULES);
+    if (nmIdx === -1) return;
+
+    const rest = id.slice(nmIdx + NODE_MODULES.length);
+    const parts = rest.split(/[\\/]/).filter(Boolean);
+    if (parts.length === 0) return;
+
+    const pkgName = parts[0]?.startsWith('@') ? `${parts[0]}/${parts[1]}` : parts[0];
+    if (!pkgName) return;
+    return pkgToChunk.get(pkgName);
+  };
+}
+
 function escapeHtmlAttr(str: string): string {
   return str
     .replace(/&/g, '&amp;')
@@ -67,50 +139,7 @@ export default defineConfig(({ command }) => {
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            // Vendor chunks
-            'react-vendor': ['react', 'react-dom'],
-            'router-vendor': ['react-router-dom'],
-            'ui-vendor': [
-              '@radix-ui/react-accordion',
-              '@radix-ui/react-alert-dialog',
-              '@radix-ui/react-aspect-ratio',
-              '@radix-ui/react-avatar',
-              '@radix-ui/react-checkbox',
-              '@radix-ui/react-collapsible',
-              '@radix-ui/react-context-menu',
-              '@radix-ui/react-dialog',
-              '@radix-ui/react-dropdown-menu',
-              '@radix-ui/react-hover-card',
-              '@radix-ui/react-label',
-              '@radix-ui/react-menubar',
-              '@radix-ui/react-navigation-menu',
-              '@radix-ui/react-popover',
-              '@radix-ui/react-progress',
-              '@radix-ui/react-radio-group',
-              '@radix-ui/react-scroll-area',
-              '@radix-ui/react-select',
-              '@radix-ui/react-separator',
-              '@radix-ui/react-slider',
-              '@radix-ui/react-slot',
-              '@radix-ui/react-switch',
-              '@radix-ui/react-tabs',
-              '@radix-ui/react-toast',
-              '@radix-ui/react-toggle',
-              '@radix-ui/react-toggle-group',
-              '@radix-ui/react-tooltip',
-            ],
-            'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
-            'utils-vendor': [
-              'axios',
-              'clsx',
-              'tailwind-merge',
-              'class-variance-authority',
-              'date-fns',
-              'lucide-react',
-            ],
-            'query-vendor': ['@tanstack/react-query'],
-          },
+          manualChunks: createManualChunks(),
         },
       },
       chunkSizeWarningLimit: 1000,
