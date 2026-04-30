@@ -1,0 +1,22 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            # 核心：安装 pnpm 并安装所有依赖
+            - npm install -g pnpm
+            - pnpm install
+        build:
+          commands:
+            # 仅构建前端应用
+            - pnpm run build --filter=frontend
+      artifacts:
+        baseDirectory: app/frontend/dist
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+          - .pnpm-store/**/*
+    appRoot: app/frontend
