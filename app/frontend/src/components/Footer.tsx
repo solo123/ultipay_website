@@ -1,3 +1,5 @@
+import LogoMark from "@/components/LogoMark";
+
 const Footer = () => {
   const year = new Date().getFullYear();
 
@@ -15,23 +17,21 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-[#2563EB] to-[#1E3A8A] flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">U</span>
-              </div>
+              <LogoMark size={44} className="drop-shadow-[0_8px_18px_rgba(37,99,235,0.28)]" />
               <div>
-                <div className="font-bold text-lg">极优贝</div>
+                <div className="font-bold text-lg">南京益贤瑞</div>
                 <div className="text-xs text-slate-400 tracking-widest">
-                  ULTIPAY TECHNOLOGY
+                  NANJING YIXIANRUI
                 </div>
               </div>
             </div>
             <p className="text-slate-400 leading-relaxed text-sm max-w-md mb-6">
-              极优贝科技有限公司 (Ultipay Technology Ltd.) —— 
-              全球跨境金融与数字化增长赋能者，致力于构建「金融 + 营销 + 物流」合规闭环体系。
+              南京益贤瑞 ——
+              专注跨境支付、跨境通国际专网与虚拟信用卡（VCC），为企业全球收付款与资金管理提供合规高效的解决方案。
             </p>
             <div className="text-xs text-slate-500 leading-relaxed">
-              <div className="font-semibold text-slate-300 mb-1">经营范围：</div>
-              人工智能应用软件开发 · 信息系统集成服务 · 互联网数据服务 · 技术咨询与推广
+              <div className="font-semibold text-slate-300 mb-1">核心业务：</div>
+              跨境支付 · 跨境通国际专网 · 虚拟信用卡（VCC）
             </div>
           </div>
 
@@ -41,16 +41,13 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="hover:text-[#10B981] cursor-pointer transition-colors">
-                全球收付款
+                跨境支付
               </li>
               <li className="hover:text-[#10B981] cursor-pointer transition-colors">
-                数字化增值服务
+                跨境通国际专网
               </li>
               <li className="hover:text-[#10B981] cursor-pointer transition-colors">
-                AI 驱动增长
-              </li>
-              <li className="hover:text-[#10B981] cursor-pointer transition-colors">
-                行业解决方案
+                VCC
               </li>
             </ul>
           </div>
@@ -78,10 +75,12 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div className="text-xs text-slate-500">
-            © {year} 极优贝科技有限公司 Ultipay Technology Ltd. 保留所有权利。
+            © {year} 南京益贤瑞网络科技有限公司 保留所有权利。
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-500">
-            <span>ICP 备案号：苏ICP备XXXXXXXX号</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank">
+              ICP 备案号：苏ICP备2026031949号-1
+            </a>
             <span className="hover:text-slate-300 cursor-pointer">隐私政策</span>
             <span className="hover:text-slate-300 cursor-pointer">服务条款</span>
           </div>

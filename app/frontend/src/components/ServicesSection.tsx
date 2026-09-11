@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Globe2, CreditCard, Sparkles, Briefcase, ArrowUpRight } from "lucide-react";
+import { Globe2, CreditCard, ArrowLeftRight, Sparkles, ArrowUpRight } from "lucide-react";
 
 type Service = {
   id: string;
@@ -7,46 +7,37 @@ type Service = {
   tag: string;
   title: string;
   desc: string;
-  aiHighlight: string;
+  highlight: string;
   accent: string;
 };
 
 const services: Service[] = [
   {
-    id: "A",
+    id: "payment",
     icon: <Globe2 size={28} />,
-    tag: "Fintech",
-    title: "全球收付款",
-    desc: "服务外贸与电商，提供费率透明的全场景结算，打通资金流转「最后一公里」。",
-    aiHighlight: "AI 实时汇率优化 · 智能路由最优通道",
+    tag: "Cross-border Payment",
+    title: "跨境支付",
+    desc: "面向外贸、电商与出海企业的跨境收付款服务，覆盖多币种结算、到账可控、费率透明的全场景资金流转。",
+    highlight: "全球结算网络 · 合规资金通道 · 实时到账追踪",
     accent: "from-[#2563EB] to-[#60A5FA]",
   },
   {
-    id: "B",
-    icon: <CreditCard size={28} />,
-    tag: "VCC & Billing",
-    title: "数字化增值服务",
-    desc: "广告费、物流费一键代付；针对数字科技企业，提供算力资源付费支持，秒级到账。",
-    aiHighlight: "AI 账单识别 · 自动化对账与异常预警",
+    id: "pass",
+    icon: <ArrowLeftRight size={28} />,
+    tag: "International Network",
+    title: "跨境通国际专网",
+    desc: "基于跨境通国际专网，提供一站式跨境收款与全球账户通道，支持海外本地收款、结汇与资金归集，打通境内外资金链路。",
+    highlight: "国际专网通道 · 多币种收款 · 快速归集结汇",
     accent: "from-[#1E3A8A] to-[#2563EB]",
   },
   {
-    id: "C",
-    icon: <Sparkles size={28} />,
-    tag: "AI Support",
-    title: "AI 驱动增长",
-    desc: "利用人工智能应用软件开发能力，优化跨境数据处理与营销决策。",
-    aiHighlight: "大模型营销洞察 · 跨境数据智能分析",
+    id: "vcc",
+    icon: <CreditCard size={28} />,
+    tag: "Virtual Credit Card",
+    title: "VCC",
+    desc: "发行与管理虚拟信用卡，适用于广告投放、云服务订阅、跨境采购等线上支付场景，额度可控、风险可管。",
+    highlight: "多卡管理 · 额度灵活 · 实时风控预警",
     accent: "from-[#10B981] to-[#059669]",
-  },
-  {
-    id: "D",
-    icon: <Briefcase size={28} />,
-    tag: "Industry",
-    title: "特定行业解决方案",
-    desc: "覆盖入境旅游外币结算优化及复杂链路的定制化支撑。",
-    aiHighlight: "行业专属模型 · 合规策略智能匹配",
-    accent: "from-[#0A2540] to-[#1E3A8A]",
   },
 ];
 
@@ -56,7 +47,6 @@ const ServicesSection = () => {
   return (
     <section id="services" className="relative py-24 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
@@ -65,15 +55,14 @@ const ServicesSection = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-[#0A2540] mb-4 leading-tight">
-            四大核心业务板块
+            三大核心业务
           </h2>
           <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-            从跨境金融到 AI 增长，极优贝提供端到端的全球业务合规流转解决方案
+            南京益贤瑞聚焦跨境支付、跨境通国际专网与 VCC，为企业全球收付款提供一站式解决方案
           </p>
         </div>
 
-        {/* Service cards */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {services.map((service) => (
             <div
               key={service.id}
@@ -81,12 +70,10 @@ const ServicesSection = () => {
               onMouseLeave={() => setHovered(null)}
               className="group relative bg-white rounded-2xl p-8 md:p-10 border border-slate-200 hover:border-[#2563EB]/40 hover:shadow-2xl hover:shadow-blue-900/10 transition-all duration-500 cursor-pointer overflow-hidden"
             >
-              {/* Accent gradient bar */}
               <div
                 className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.accent}`}
               />
 
-              {/* Decorative circle */}
               <div
                 className={`absolute -top-20 -right-20 w-60 h-60 rounded-full bg-gradient-to-br ${service.accent} opacity-5 group-hover:opacity-10 transition-opacity`}
               />
@@ -116,7 +103,6 @@ const ServicesSection = () => {
                   {service.desc}
                 </p>
 
-                {/* AI highlight - visible on hover */}
                 <div
                   className={`flex items-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-emerald-50 to-blue-50 border border-emerald-100 transition-all duration-500 ${
                     hovered === service.id
@@ -126,7 +112,7 @@ const ServicesSection = () => {
                 >
                   <Sparkles size={16} className="text-[#10B981] flex-shrink-0" />
                   <span className="text-sm font-medium text-[#064E3B]">
-                    {service.aiHighlight}
+                    {service.highlight}
                   </span>
                 </div>
               </div>
@@ -134,7 +120,6 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Bottom feature image strip */}
         <div className="mt-16 grid md:grid-cols-2 gap-6">
           <div
             className="rounded-2xl overflow-hidden h-64 bg-cover bg-center relative group"
@@ -146,10 +131,10 @@ const ServicesSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A2540] via-[#0A2540]/60 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="text-xs text-[#10B981] font-semibold tracking-widest mb-2">
-                GLOBAL PAYMENT
+                CROSS-BORDER PAYMENT
               </div>
               <h4 className="text-xl font-bold text-white">
-                打通全球资金流转的最后一公里
+                跨境支付，打通全球资金流转
               </h4>
             </div>
           </div>
@@ -163,10 +148,10 @@ const ServicesSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#064E3B] via-[#0A2540]/60 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <div className="text-xs text-[#10B981] font-semibold tracking-widest mb-2">
-                AI INTELLIGENCE
+                INTERNATIONAL NETWORK & VCC
               </div>
               <h4 className="text-xl font-bold text-white">
-                用 AI 重新定义跨境增长决策
+                跨境通国际专网与 VCC，覆盖收款到支付全链路
               </h4>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import { defineConfig, type Plugin } from 'vite';
+import react from '@vitejs/plugin-react';
 import path from 'path';
 import { viteSourceLocator } from '@metagptx/vite-plugin-source-locator';
 import { atoms } from '@metagptx/web-sdk/plugins';
@@ -89,11 +89,34 @@ function escapeHtmlAttr(str: string): string {
     .replace(/'/g, '&#39;');
 }
 
-process.env.VITE_APP_TITLE ??= process.env.OVERVIEW_TITLE ?? 'Ultipay-极优贝';
-process.env.VITE_APP_DESCRIPTION ??= process.env.OVERVIEW_DESCRIPTION ?? '极优链动全球，赋能大体量业务合规流转';
+function runtimeConfigPlugin(): Plugin {
+  const payload = JSON.stringify({
+    API_BASE_URL: process.env.VITE_API_BASE_URL || '/',
+  });
+
+  const mount: NonNullable<Plugin['configureServer']> = (server) => {
+    server.middlewares.use((req, res, next) => {
+      if (req.url?.split('?')[0] !== '/api/config') {
+        next();
+        return;
+      }
+      res.setHeader('Content-Type', 'application/json');
+      res.end(payload);
+    });
+  };
+
+  return {
+    name: 'runtime-config',
+    configureServer: mount,
+    configurePreviewServer: mount,
+  };
+}
+
+process.env.VITE_APP_TITLE ??= process.env.OVERVIEW_TITLE ?? '南京 · 益贤瑞';
+process.env.VITE_APP_DESCRIPTION ??= process.env.OVERVIEW_DESCRIPTION ?? '南京益贤瑞 — 跨境支付、跨境通国际专网、VCC';
 process.env.VITE_APP_TITLE = escapeHtmlAttr(process.env.VITE_APP_TITLE);
 process.env.VITE_APP_DESCRIPTION = escapeHtmlAttr(process.env.VITE_APP_DESCRIPTION);
-process.env.VITE_APP_LOGO_URL ??= process.env.OVERVIEW_LOGO_URL ?? 'https://public-frontend-cos.metadl.com/mgx/img/favicon_atoms.ico';
+process.env.VITE_APP_LOGO_URL ??= process.env.OVERVIEW_LOGO_URL ?? '/favicon.svg';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -106,6 +129,7 @@ export default defineConfig(({ command }) => {
       }),
       react(),
       atoms(),
+      ...(!process.env.VITE_API_PROXY_TARGET ? [runtimeConfigPlugin()] : []),
       Sitemap({
         hostname: 'https://atoms.template.com',
         lastmod: getSitemapLastmod(),
@@ -128,12 +152,17 @@ export default defineConfig(({ command }) => {
     server: {
       host: '0.0.0.0', // Listen on all network interfaces.
       port: parseInt(process.env.VITE_PORT || '3000'),
-      proxy: {
-        '/api': {
-          target: `http://localhost:8000`,
-          changeOrigin: true,
-        },
-      },
+      // This repo is a static site. Only proxy /api when a backend is actually running.
+      ...(process.env.VITE_API_PROXY_TARGET
+        ? {
+            proxy: {
+              '/api': {
+                target: process.env.VITE_API_PROXY_TARGET,
+                changeOrigin: true,
+              },
+            },
+          }
+        : {}),
       watch: { usePolling: true, interval: 600 },
     },
     build: {

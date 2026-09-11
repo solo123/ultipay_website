@@ -3,6 +3,7 @@ import { ShieldCheck, Lock, Banknote } from "lucide-react";
 const PartnersSection = () => {
   const partners = [
     { name: "SUNRATE", zh: "寻汇", desc: "全球跨境金融与资金管理平台" },
+    { name: "PhotonPay", zh: "光子易", desc: "全球持牌支付科技公司，提供跨境收款、付款与虚拟卡服务" },
   ];
 
   const values = [
@@ -25,7 +26,7 @@ const PartnersSection = () => {
             战略合作伙伴
           </h2>
           <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-            与全球领先的持牌金融服务商深度合作，构建安全合规的跨境资金通道
+            与持牌金融服务商深度合作，为跨境支付、跨境通国际专网与 VCC 构建安全合规的资金通道
           </p>
         </div>
 

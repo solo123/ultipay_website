@@ -36,7 +36,7 @@ const ContactSection = () => {
             获取您的定制化合规方案
           </h2>
           <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-            提交您的业务需求，极优贝专业顾问将在 24 小时内与您联系
+            提交您的业务需求，南京益贤瑞专业顾问将在 24 小时内与您联系
           </p>
         </div>
 
@@ -47,7 +47,7 @@ const ContactSection = () => {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#2563EB] rounded-full opacity-20 blur-3xl translate-y-20 -translate-x-20" />
 
             <div className="relative">
-              <h3 className="text-2xl font-bold mb-2">联系极优贝</h3>
+              <h3 className="text-2xl font-bold mb-2">联系南京益贤瑞</h3>
               <p className="text-slate-300 text-sm mb-10">
                 欢迎到访我们的办公中心，或通过以下方式直接联系我们
               </p>
@@ -62,9 +62,9 @@ const ContactSection = () => {
                       公司总部
                     </div>
                     <div className="text-white font-medium">
-                      江苏省南京市建邺区
+                      南京市建邺区嘉陵江东街18号
                       <br />
-                      高新技术产业开发区办公中心
+                      国家广告产业园5栋18楼
                     </div>
                   </div>
                 </div>
@@ -77,7 +77,12 @@ const ContactSection = () => {
                     <div className="text-xs text-slate-400 tracking-widest mb-1">
                       商务邮箱
                     </div>
-                    <div className="text-white font-medium">contact@ultipay.com</div>
+                    <a
+                      href="mailto:info@ultipay365.cn"
+                      className="text-white font-medium hover:text-[#10B981] transition-colors"
+                    >
+                      info@ultipay365.cn
+                    </a>
                   </div>
                 </div>
 
@@ -172,7 +177,7 @@ const ContactSection = () => {
                   value={form.msg}
                   onChange={(e) => setForm({ ...form, msg: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-[#2563EB] focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm resize-none"
-                  placeholder="请简要描述您的跨境金融、AI 赋能或其他业务需求..."
+                  placeholder="请简要描述您的跨境支付、跨境通国际专网或 VCC 业务需求..."
                 />
               </div>
 
@@ -191,7 +196,7 @@ const ContactSection = () => {
               </Button>
 
               <p className="text-xs text-slate-400 text-center">
-                提交即表示同意极优贝的 <span className="text-[#2563EB]">隐私协议</span> 与 <span className="text-[#2563EB]">服务条款</span>
+                提交即表示同意南京益贤瑞的 <span className="text-[#2563EB]">隐私协议</span> 与 <span className="text-[#2563EB]">服务条款</span>
               </p>
             </form>
           </div>

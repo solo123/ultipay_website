@@ -58,22 +58,22 @@ const HeroSection = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
             <Sparkles size={14} className="text-[#10B981]" />
             <span className="text-sm text-white/90 font-medium">
-              AI 赋能 · 全球持牌 · 合规安全
+              跨境支付 · 跨境通国际专网 · VCC
             </span>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-            极优链动全球
+            南京益贤瑞
             <br />
             <span className="bg-gradient-to-r from-[#10B981] to-[#60A5FA] bg-clip-text text-transparent">
-              赋能大体量业务合规流转
+              跨境资金合规流转
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
-            全球跨境金融与数字化增长赋能者。依托国际持牌金融资源，构建
-            <span className="mt-[0px] mr-[0px] mb-[0px] ml-[0px] pt-[0px] pr-[0px] pb-[0px] pl-[0px] rounded-none text-[20px] font-semibold text-[#10B981] bg-[#00000000] opacity-100">「金融 + 营销 + 物流」</span>
-            闭环体系。
+            专注
+            <span className="font-semibold text-[#10B981]">跨境支付、跨境通国际专网与虚拟信用卡（VCC）</span>
+            ，为企业提供高效、合规的全球收付款与资金管理服务。
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -96,22 +96,18 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 max-w-2xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mt-16 max-w-2xl">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-white">100+</div>
-              <div className="text-xs md:text-sm text-slate-400 mt-1">全球结算币种</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white whitespace-nowrap">跨境支付</div>
+              <div className="text-xs md:text-sm text-slate-400 mt-1">全球收付款通道</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-white">
-                24<span className="text-[#10B981]">/</span>7
-              </div>
-              <div className="text-xs md:text-sm text-slate-400 mt-1">全天候服务</div>
+              <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight">跨境通国际专网</div>
+              <div className="text-xs md:text-sm text-slate-400 mt-1">国际专网资金通道</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-white">
-                AI<span className="text-[#10B981]">·</span>Native
-              </div>
-              <div className="text-xs md:text-sm text-slate-400 mt-1">智能算法驱动</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white whitespace-nowrap">VCC</div>
+              <div className="text-xs md:text-sm text-slate-400 mt-1">虚拟信用卡服务</div>
             </div>
           </div>
         </div>

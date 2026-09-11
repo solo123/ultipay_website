@@ -15,7 +15,7 @@ const ComplianceSection = () => {
     {
       icon: <ShieldCheck size={24} />,
       title: "透明经营",
-      desc: "拥有合法的互联网数据服务、人工智能开发及信息系统集成资质",
+      desc: "聚焦跨境支付、跨境通国际专网与 VCC，经营范围清晰、资质可查",
     },
   ];
 
@@ -59,7 +59,7 @@ const ComplianceSection = () => {
             立足南京 <span className="text-[#10B981]">·</span> 合规全球
           </h2>
           <p className="text-base md:text-lg text-slate-300 leading-relaxed">
-            以严谨的资质体系与透明的经营原则，为每一笔大体量业务保驾护航
+            以严谨的资质体系与透明的经营原则，为跨境支付、跨境通国际专网与 VCC 业务保驾护航
           </p>
         </div>
 
@@ -96,8 +96,8 @@ const ComplianceSection = () => {
                 经营范围合法透明
               </h4>
               <p className="text-slate-300 leading-relaxed text-sm md:text-base">
-                人工智能应用软件开发、信息系统集成服务、互联网数据服务、技术咨询与推广服务 —— 
-                每一项资质都经过政府主管部门核准备案。
+                跨境支付、跨境通国际专网、虚拟信用卡（VCC） ——
+                为出海企业提供合规、高效的全球资金服务。
               </p>
             </div>
             <div className="flex items-center gap-3 text-[#10B981]">

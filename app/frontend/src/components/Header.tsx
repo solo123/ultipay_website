@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import LogoMark from "@/components/LogoMark";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -34,19 +35,22 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#1E3A8A] to-[#2563EB] flex items-center justify-center shadow-md">
-            <span className="text-white font-bold text-lg">U</span>
-          </div>
-          <div className="flex flex-col leading-tight">
+        <button
+          type="button"
+          onClick={() => scrollTo("#home")}
+          className="flex items-center gap-2.5 bg-transparent p-0 border-0 cursor-pointer appearance-none"
+          aria-label="南京益贤瑞"
+        >
+          <LogoMark size={38} className="drop-shadow-[0_6px_14px_rgba(37,99,235,0.35)]" />
+          <div className="flex flex-col leading-tight text-left">
             <span className={`font-bold text-base ${scrolled ? "text-[#0A2540]" : "text-white"}`}>
-              极优贝
+              南京益贤瑞
             </span>
-            <span className={`text-[10px] tracking-widest ${scrolled ? "text-slate-500" : "text-slate-300"}`}>
-              ULTIPAY
+            <span className={`text-[10px] tracking-[0.22em] ${scrolled ? "text-slate-500" : "text-slate-300"}`}>
+              YIXIANRUI
             </span>
           </div>
-        </div>
+        </button>
 
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
